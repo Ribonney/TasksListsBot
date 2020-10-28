@@ -12,7 +12,7 @@ bot = telebot.TeleBot(sys.argv[1])
 
 
 help_spa = {
-	'lists': "Mevcut liste kümesini göster."
+	'lists': "Mevcut liste kümesini göster.",
 	'addList NombreLista': "Yeni bir boş liste oluşturun.",
 	'delList ListName': "Mevcut bir listeyi silin.",
 	'advanced': "Gelişmiş komutları göster."
@@ -111,7 +111,7 @@ def doneTask(cid, listName, taskNumber):
 				else:
 					dic["Yapılmış"] = [taskName]
 				writeLists(cid, dic)
-				bot.send_message(cid, f"Görev \ "{taskName} \" Tamamlandı Olarak İşaretlendi.")
+				bot.send_message(cid, f"Görev \"{taskName} \" Tamamlandı Olarak İşaretlendi.")
 			except IndexError:
 				bot.send_message(cid, "Aralık dışı dizini.")
 			except Exception as e:
@@ -227,7 +227,7 @@ def command_add(message):
 	
 	partes = message.text.split(',')
 	if(len(partes) < 2):
-		bot.send_message(cid, "Listenin adını ve görevin adını virgülle ayırarak belirtmelisiniz. Örnek: /Add List1, Task1)
+		bot.send_message(cid, "Listenin adını ve görevin adını virgülle ayırarak belirtmelisiniz. Örnek: /Add List1, Task1")
 	else:
 		listName = toSentence(partes[0][5:])
 		taskName = toSentence(partes[1])
